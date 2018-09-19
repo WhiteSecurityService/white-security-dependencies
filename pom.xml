@@ -25,6 +25,11 @@
         <spring-cloud.version>Dalston.SR2</spring-cloud.version>
         <spring-platform.version>Brussels-SR4</spring-platform.version>
 
+        <!-- Other Settings -->
+        <mysql.version>5.1.46</mysql.version>
+        <lombok.version>1.18.2</lombok.version>
+        <swagger2.verison>2.8.0</swagger2.verison>
+
     </properties>
 
     <dependencyManagement>
@@ -40,6 +45,16 @@
             </dependency>
             <!-- Spring Cloud End -->
 
+            <!-- Spring Boot Admin Begin -->
+            <!--<dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>-->
+            <!-- Spring Boot Admin End -->
+
             <!-- 解决jar依赖 -->
             <dependency>
                 <groupId>io.spring.platform</groupId>
@@ -48,6 +63,36 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- Other Settings Begin-->
+            <!-- MySql Connector -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!-- LomBok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- Swagger2 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.verison}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.verison}</version>
+            </dependency>
+
+            <!-- Other Settings End -->
 
         </dependencies>
     </dependencyManagement>
@@ -59,7 +104,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <showWarnings>true</showWarnings>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                   <!-- <showWarnings>true</showWarnings>-->
                 </configuration>
             </plugin>
 
